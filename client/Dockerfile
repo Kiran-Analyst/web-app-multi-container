@@ -2,6 +2,7 @@ FROM node:alpine as builder
 WORKDIR '/app'
 COPY . .
 RUN npm install
+RUN npm audit fix --force
 CMD npm run build
 
 FROM nginx
